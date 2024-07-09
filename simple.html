@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habitaciones Simples</title>
+  <link rel="stylesheet" href="gio.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <style>
+    .habitaciones .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .habitaciones h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .habitacion-list {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 20px;
+    }
+    .habitacion {
+      flex: 0 0 auto;
+      width: 300px;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .img-fixed-size {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .btn-reservar, .btn-volver {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-reservar:hover, .btn-volver:hover {
+      background-color: #0056b3;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.4);
+      padding-top: 60px;
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .modal-receipt {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.4);
+      padding-top: 60px;
+    }
+    .modal-receipt-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .modal-receipt h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .modal-receipt .details {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .qr-container {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .card-container {
+      display: none;
+      margin-top: 20px;
+    }
+    .card-container input {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="menu container">
+      <a href="gio.html" class="logo"><img src="images/logo.png" alt="Logo"></a>
+      <input type="checkbox" id="menu" />
+      <label for="menu"><img src="images/menu.png" class="menu-icono" alt="Menú"></label>
+      <nav class="navbar">
+        <ul>
+          <li><a href="gio.html#inicio">Inicio</a></li>
+          <li><a href="gio.html#servicios">Servicios</a></li>
+          <li><a href="gio.html#cuartos">Cuartos</a></li>
+          <li><a href="gio.html#contactos">Contactos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <center>
+    <section id="habitaciones-simples" class="habitaciones">
+      <div class="container">
+        <h2>Habitaciones Simples</h2>
+        <div class="habitacion-list">
+          <div class="habitacion">
+            <div class="habitacion-txt">
+              <h4>Habitación Simple 1</h4>
+              <img src="images/b6.jpg" alt="Habitación Simple 1" class="img-fixed-size">
+              <p>Habitación individual con baño privado</p>
+              <span class="price">S/120 x noche</span>
+              <button class="btn-reservar" onclick="openModal('Habitación Simple 1', 120)">Reservar</button>
+            </div>
+          </div>
+          <div class="habitacion">
+            <div class="habitacion-txt">
+              <h4>Habitación Simple 2</h4>
+              <img src="images/b7.jpg" alt="Habitación Simple 2" class="img-fixed-size">
+              <p>Habitación individual con baño privado</p>
+              <span class="price">S/110 x noche</span>
+              <button class="btn-reservar" onclick="openModal('Habitación Simple 2', 110)">Reservar</button>
+            </div>
+          </div>
+          <div class="habitacion">
+            <div class="habitacion-txt">
+              <h4>Habitación Simple 3</h4>
+              <img src="images/b8.jpg" alt="Habitación Simple 3" class="img-fixed-size">
+              <p>Habitación individual con baño privado</p>
+              <span class="price">S/115 x noche</span>
+              <button class="btn-reservar" onclick="openModal('Habitación Simple 3', 115)">Reservar</button>
+            </div>
+          </div>
+          <div class="habitacion">
+            <div class="habitacion-txt">
+              <h4>Habitación Simple 4</h4>
+              <img src="images/b9.jpg" alt="Habitación Simple 4" class="img-fixed-size">
+              <p>Habitación individual con baño privado</p>
+              <span class="price">S/130 x noche</span>
+              <button class="btn-reservar" onclick="openModal('Habitación Simple 4', 130)">Reservar</button>
+            </div>
+          </div>
+        </div>
+        <button class="btn-volver" onclick="window.location.href='gio.html'">Volver</button>
+      </div>
+    </section>
+  </center>
+
+  <div id="modal-reserva" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Reservar Habitación</h2>
+      <form id="form-reserva">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <label for="fecha-inicio">Fecha de Inicio:</label>
+        <input type="text" id="fecha-inicio" name="fecha-inicio" class="datepicker" required>
+        <label for="fecha-fin">Fecha de Fin:</label>
+        <input type="text" id="fecha-fin" name="fecha-fin" class="datepicker" required>
+        <label for="metodo-pago">Método de Pago:</label>
+        <select id="metodo-pago" name="metodo-pago" onchange="togglePaymentFields()" required>
+          <option value="">Seleccione un método de pago</option>
+          <option value="yape">Yape</option>
+          <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+        </select>
+        <div class="qr-container" id="qr-container">
+          <img src="images/qr-yape.jpg" alt="Código QR Yape">
+        </div>
+        <div class="card-container" id="card-container">
+          <input type="text" id="card-number" name="card-number" placeholder="Número de Tarjeta" required>
+          <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/AA" required>
+          <input type="text" id="card-cvc" name="card-cvc" placeholder="CVC" required>
+        </div>
+        <input type="hidden" id="habitacion-nombre">
+        <input type="hidden" id="habitacion-precio">
+        <button type="submit" class="btn-reservar">Reservar</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="modal-receipt" class="modal-receipt">
+    <div class="modal-receipt-content">
+      <span class="close" onclick="closeReceipt()">&times;</span>
+      <h2>Confirmación de Reserva</h2>
+      <div class="details">
+        <p id="receipt-nombre"></p>
+        <p id="receipt-habitacion"></p>
+        <p id="receipt-precio"></p>
+        <p id="receipt-fecha"></p>
+        <p id="receipt-metodo"></p>
+      </div>
+      <button class="btn-volver" onclick="window.location.href='gio.html'">Volver</button>
+    </div>
+  </div>
+
+  <footer class="footer container">
+    <hr>
+    <div class="footer-txt">
+      <img src="images/logo.png" alt="Logo">
+      <div class="links">
+        <ul>
+          <li><a href="gio.html#inicio">Inicio</a></li>
+          <li><a href="gio.html#nosotros">Nosotros</a></li>
+          <li><a href="gio.html#productos">Productos</a></li>
+          <li><a href="gio.html#contactos">Contactos</a></li>
+        </ul>
+        <div class="socials">
+          <img src="images/s1.svg" alt="Social 1">
+          <img src="images/s2.svg" alt="Social 2">
+          <img src="images/s3.svg" alt="Social 3">
+        </div>
+        <p>@hotel</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function openModal(habitacion, precio) {
+      document.getElementById('modal-reserva').style.display = 'block';
+      document.getElementById('habitacion-nombre').value = habitacion;
+      document.getElementById('habitacion-precio').value = precio;
+    }
+
+    function closeModal() {
+      document.getElementById('modal-reserva').style.display = 'none';
+    }
+
+    function closeReceipt() {
+      document.getElementById('modal-receipt').style.display = 'none';
+    }
+
+    function togglePaymentFields() {
+      const metodoPago = document.getElementById('metodo-pago').value;
+      const qrContainer = document.getElementById('qr-container');
+      const cardContainer = document.getElementById('card-container');
+      
+      if (metodoPago === 'yape') {
+        qrContainer.style.display = 'block';
+        cardContainer.style.display = 'none';
+      } else if (metodoPago === 'tarjeta') {
+        qrContainer.style.display = 'none';
+        cardContainer.style.display = 'block';
+      } else {
+        qrContainer.style.display = 'none';
+        cardContainer.style.display = 'none';
+      }
+    }
+
+    flatpickr(".datepicker", {
+      enableTime: false,
+      dateFormat: "Y-m-d",
+    });
+
+    document.getElementById('form-reserva').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value;
+      const fechaInicio = document.getElementById('fecha-inicio').value;
+      const fechaFin = document.getElementById('fecha-fin').value;
+      const habitacionNombre = document.getElementById('habitacion-nombre').value;
+      const habitacionPrecio = document.getElementById('habitacion-precio').value;
+      const metodoPago = document.getElementById('metodo-pago').value;
+
+      document.getElementById('receipt-nombre').innerText = `Nombre: ${nombre}`;
+      document.getElementById('receipt-habitacion').innerText = `Habitación: ${habitacionNombre}`;
+      document.getElementById('receipt-precio').innerText = `Precio: S/${habitacionPrecio} por noche`;
+      document.getElementById('receipt-fecha').innerText = `Fecha: Desde ${fechaInicio} hasta ${fechaFin}`;
+      document.getElementById('receipt-metodo').innerText = `Método de Pago: ${metodoPago.charAt(0).toUpperCase() + metodoPago.slice(1)}`;
+
+      closeModal();
+      document.getElementById('modal-receipt').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

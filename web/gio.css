@@ -1,0 +1,150 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Header Styles */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+  }
+  
+  .logo img {
+    max-width: 150px;
+  }
+  
+  .menu input[type="checkbox"] {
+    display: none;
+  }
+  
+  .menu-icono {
+    cursor: pointer;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .header-content {
+    text-align: center;
+    padding: 50px 0;
+  }
+  
+  .enlace {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  /* Swiper Styles */
+  .swiper {
+    margin-bottom: 20px;
+  }
+  
+  .swiper-slide img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  /* Product Styles */
+  .product {
+    text-align: center;
+  }
+  
+  .product img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .product-txt h4 {
+    margin: 10px 0 5px;
+  }
+  
+  .product-txt .price {
+    color: #ff6600;
+    font-weight: bold;
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer-txt img {
+    max-width: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .footer .links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .footer .links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer .links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .socials img {
+    max-width: 30px;
+    margin: 0 5px;
+  }
+  /* Botón Reservar */
+.btn-reservar {
+  display: inline-block;
+  background-color: #ff6600; /* Color de fondo */
+  color: #fff; /* Color de texto */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  font-weight: bold; /* Negrita */
+  text-align: center; /* Alineación del texto */
+  text-decoration: none; /* Sin subrayado */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s ease; /* Transición suave */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.btn-reservar:hover {
+  background-color: #e65c00; /* Color de fondo al pasar el ratón */
+}
+
+.btn-reservar:active {
+  background-color: #cc5200; /* Color de fondo al hacer clic */
+}
+
+.btn-reservar:focus {
+  outline: none; /* Sin borde de enfoque */
+  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.5); /* Sombra de enfoque */
+}
+
+  

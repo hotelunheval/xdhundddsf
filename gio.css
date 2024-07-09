@@ -1,0 +1,379 @@
+/* Estilos básicos para el contenedor */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Estilos para el menú */
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.menu .logo img {
+  height: 50px;
+}
+
+.menu input[type="checkbox"] {
+  display: none;
+}
+
+.menu .menu-icono {
+  display: none;
+  width: 30px;
+  cursor: pointer;
+}
+
+.menu .navbar {
+  display: flex;
+}
+
+.menu .navbar ul {
+  list-style: none;
+  display: flex;
+}
+
+.menu .navbar ul li {
+  margin-left: 20px;
+}
+
+.menu .navbar ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Estilos para el header */
+.header-content {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.header-content .swiper {
+  width: 100%;
+  height: 400px;
+}
+
+.header-content .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header-content .enlace {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.header-content .enlace:hover {
+  background: #333;
+}
+
+/* Estilos para la sección de servicios */
+.servicios .swiper {
+  width: 100%;
+  height: 300px;
+}
+
+.servicios .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.servicios .service {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Estilos para la sección de cuartos */
+.habitaciones .swiper {
+  width: 100%;
+  height: auto;
+}
+
+.habitaciones .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.habitaciones .product {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.habitaciones .product img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.habitaciones .product-txt h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.habitaciones .product-txt p {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.habitaciones .product-txt .price {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.habitaciones .product-txt .btn-ver {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.habitaciones .product-txt .btn-ver:hover {
+  background: #333;
+}
+
+/* Estilos para la sección de carrito */
+.carrito {
+  padding: 50px 0;
+}
+
+.carrito h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.carrito #carrito-items {
+  margin-bottom: 20px;
+}
+
+.carrito .btn-reservar {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.carrito .btn-reservar:hover {
+  background: #333;
+}
+
+/* Estilos para la sección de contactos */
+.contactos {
+  padding: 50px 0;
+}
+
+.contactos h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el footer */
+.footer {
+  padding: 20px 0;
+}
+
+.footer .footer-txt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer .footer-txt img {
+  height: 50px;
+}
+
+.footer .footer-txt .links {
+  display: flex;
+}
+
+.footer .footer-txt .links ul {
+  list-style: none;
+  display: flex;
+}
+
+.footer .footer-txt .links ul li {
+  margin-left: 20px;
+}
+
+.footer .footer-txt .links ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.footer .footer-txt .socials img {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.footer .footer-txt p {
+  margin-left: 20px;
+  font-size: 14px;
+  color: #777;
+}
+
+/* Estilos para el modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.close, .close-resumen {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus, .close-resumen:hover, .close-resumen:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilos para el formulario */
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content form label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.modal-content form input {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.modal-content form .btn-reservar {
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.modal-content form .btn-reservar:hover {
+  background: #333;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-content #resumen-contenido {
+  margin-bottom: 20px;
+}
+
+.modal-content #confirmar-reserva {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.modal-content #confirmar-reserva:hover {
+  background: #333;
+}
+/* Estilos para los botones de servicio */
+.servicios .btn-ver-servicio {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.servicios .btn-ver-servicio:hover {
+  background: #333;
+}
+/* Tamaño fijo para las imágenes */
+.img-fixed-size {
+  width: 300px; /* Ajusta este valor según tus necesidades */
+  height: 200px; /* Ajusta este valor según tus necesidades */
+  object-fit: cover;
+}
+
+/* Para que las imágenes sean responsivas */
+@media (max-width: 600px) {
+  .img-fixed-size {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Estilo para el botón de volver */
+.btn-volver {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-volver:hover {
+  background-color: #0056b3;
+}
+
